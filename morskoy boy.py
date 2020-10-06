@@ -1,6 +1,8 @@
 from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
 import settings
+from shop import Ship, VERTICAL, HORIZONTAL
+
 
 class Pole(QWidget):
     def paintEvent(self, event):
@@ -45,5 +47,31 @@ if __name__ == "__main__":
     pole2.move(settings.a+settings.w*settings.size+4*settings.size, settings.b)
     window.layout().addWidget(pole2)
 
+    for i in range(settings.ship_1):
+        ship= Ship(1,VERTICAL)
+        ship.move(settings.x1,settings.y1)
+        settings.x1+=settings.size+10
+        window.layout().addWidget(ship)
+
+    for i in range(settings.ship_2):
+        ship = Ship(2, VERTICAL)
+        ship.move(settings.x1, settings.y2)
+        settings.x1 += settings.size + 50
+        window.layout().addWidget(ship)
+
+    for i in range(settings.ship_3):
+        ship = Ship(3, VERTICAL)
+        ship.move(settings.x1, settings.y3)
+        settings.x1 += settings.size + 70
+        window.layout().addWidget(ship)
+
+    for i in range(settings.ship_4):
+        ship = Ship(4, VERTICAL)
+        ship.move(settings.x1, settings.y4)
+        settings.x1 += settings.size + 10
+        window.layout().addWidget(ship)
+
+
+
     window.show()
-    app.exec_()
+    app.exec()
