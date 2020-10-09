@@ -31,6 +31,16 @@ class Pole(QWidget):
             painter.drawText(0,y,symbol)
             y+=settings.size
 
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     app = QApplication([])
 
@@ -50,24 +60,28 @@ if __name__ == "__main__":
     for i in range(settings.ship_1):
         ship= Ship(1,VERTICAL)
         ship.move(settings.x1,settings.y1)
+        ship.setStyleSheet("background-color: #F4FA58")
         settings.x1+=settings.size+10
         window.layout().addWidget(ship)
 
     for i in range(settings.ship_2):
         ship = Ship(2, VERTICAL)
         ship.move(settings.x1, settings.y2)
+        ship.setStyleSheet("background-color: #81F79F")
         settings.x1 += settings.size + 50
         window.layout().addWidget(ship)
 
     for i in range(settings.ship_3):
         ship = Ship(3, VERTICAL)
         ship.move(settings.x1, settings.y3)
+        ship.setStyleSheet("background-color: #A9D0F5")
         settings.x1 += settings.size + 70
         window.layout().addWidget(ship)
 
     for i in range(settings.ship_4):
         ship = Ship(4, VERTICAL)
         ship.move(settings.x1, settings.y4)
+        ship.setStyleSheet("background-color: #8A0808")
         settings.x1 += settings.size + 10
         window.layout().addWidget(ship)
 
