@@ -54,6 +54,7 @@ def signal_function(data):
     button = QPushButton()
     button.setFixedSize(100, 100)
     button.move(int(x), int(y))
+    button.setText(data)
     window.layout().addWidget(button)
 
     # button = QPushButton()
