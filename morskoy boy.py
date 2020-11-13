@@ -1,10 +1,13 @@
-from PyQt5.QtGui import QPainter
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
 import settings
 from shop import Ship, VERTICAL, HORIZONTAL
 
 
 class Pole(QWidget):
+
+    coords = []
     def paintEvent(self, event):
         painter = QPainter(self)
         x=10
@@ -30,6 +33,28 @@ class Pole(QWidget):
         for symbol in d:
             painter.drawText(0,y,symbol)
             y+=settings.size
+
+        for i in range(len(self.coords)):
+            coord = self.coords[i]
+            bukva = coord[:1]
+            tsifra = coord[1:]
+            a = int(tsifra)
+            b = d.index(bukva)
+            painter.setBrush(Qt.red)
+            painter.drawEllipse(a * settings.size - 12, b * settings.size + 18,15,15)
+
+
+    def mousePressEvent(self,event):
+        x=event.x()
+        y=event.y()
+        numberx =x// settings.size+2
+        s='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        numbery = y// settings.size+1
+        coord = s[numbery-1] + str(numberx-1)
+        self.coords.append(coord)
+        print(coord)
+        self.repaint()
+
 
 
 
@@ -84,6 +109,11 @@ if __name__ == "__main__":
         ship.setStyleSheet("background-color: #8A0808")
         settings.x1 += settings.size + 10
         window.layout().addWidget(ship)
+
+
+
+
+    #rect = ship.rect().intersected(ship2.rect())
 
 
 

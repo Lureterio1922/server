@@ -29,7 +29,7 @@ def infinite_server():
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind(("192.168.0.115",2525))
+sock.bind(("192.168.0.115",6666))
 sock.listen()
 print("CheNit1")
 
